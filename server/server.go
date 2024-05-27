@@ -25,7 +25,7 @@ type Claims struct {
 }
 
 func ListenAndServe() {
-	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
 	router.Use(func(c *gin.Context) {
