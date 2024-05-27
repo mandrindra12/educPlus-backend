@@ -68,7 +68,7 @@ func ListenAndServe() {
 		c.HTML(http.StatusNotFound, "404.html", nil)
 		return
 	})
-	router.Run(":8080")
+	router.Run("https://educplus.onrender.com")
 }
 
 func ManageCookies(c *gin.Context, admin Credentials) {
