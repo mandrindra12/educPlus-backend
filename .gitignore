@@ -1,3 +1,4 @@
 main
 app
 mailsender/resend.go
+server/auth.go
