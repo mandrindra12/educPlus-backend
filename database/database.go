@@ -4,14 +4,18 @@ import (
 	"log"
 
 	"golang.org/x/crypto/bcrypt"
-	"gorm.io/driver/mysql"
+	// "gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"mada.h/educplus/models"
 )
 
 func connect() *gorm.DB {
-	dsn := "root:20050412@tcp(127.0.0.1:3306)/educplus?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	// postgres dsn
+	dsn := "host = dpg-cpa2hrsf7o1s73a8qgl0-a user=educplus password=D5tNP1jHzS7IFzWHbwkphtewST0W80q9 port=5432"
+	// dsn := "root:20050412@tcp(127.0.0.1:3306)/educplus?charset=utf8mb4&parseTime=True&loc=Local"
+	// db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("failed to connect database: %v", err)
 	}
