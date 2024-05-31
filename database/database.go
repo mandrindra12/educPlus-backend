@@ -19,13 +19,13 @@ func connect() *gorm.DB {
 	if err != nil {
 		log.Fatalf("failed to connect database: %v", err)
 	}
-	// hash, _ := bcrypt.GenerateFromPassword([]byte("123456"), bcrypt.DefaultCost);
-	// mandrindra := User{
-	//   Username: "educplus",
-	//   Password: string(hash),
-	// }
-	// db.AutoMigrate(&models.User{}, &models.Event{}, &models.Mail{}, &models.Content{})
-	// db.Create(&mandrindra);
+	hash, _ := bcrypt.GenerateFromPassword([]byte("123456"), bcrypt.DefaultCost)
+	mandrindra := models.User{
+		Username: "educplus",
+		Password: string(hash),
+	}
+	db.AutoMigrate(&models.User{}, &models.Event{}, &models.Mail{}, &models.Content{})
+	db.Create(&mandrindra)
 	return db
 }
 
