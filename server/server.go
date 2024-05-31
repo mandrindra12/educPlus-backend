@@ -19,7 +19,7 @@ import (
 var jwtKey = []byte(os.Getenv("JWT_KEY"))
 
 func ListenAndServe() {
-	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
 	router.Use(func(c *gin.Context) {
